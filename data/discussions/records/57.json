@@ -7,8 +7,8 @@
   "number": 57,
   "title": "Monthly Community Working Group Meetings",
   "url": "https://github.com/FedRAMP/community/discussions/57",
-  "category": "Announcements",
-  "category_slug": "announcements",
+  "category": "Official Threads",
+  "category_slug": "official-threads",
   "labels": [
     "FedRAMP Official"
   ],
@@ -44,6 +44,6 @@
       "rev5"
     ]
   },
-  "content_hash": "bbc8c99c8cc616ccdd5b4c45a7e1e7132c1543506bdc748b40efddfdf79082ea",
-  "synced_at": "2026-10-24T02:20:11.900157+00:00"
+  "content_hash": "514219f939c7ca5db0c185b2e96a92cae3371c2173a1f201137cd8057d0a1ef6",
+  "synced_at": "2026-11-15T14:49:29.056259+00:00"
 }

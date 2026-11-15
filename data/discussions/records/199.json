@@ -15,7 +15,7 @@
   "author": "LPT00-ctrl",
   "author_is_official": false,
   "created_at": "2026-11-13T20:18:07Z",
-  "updated_at": "2026-11-13T20:18:07Z",
+  "updated_at": "2026-11-14T15:16:49Z",
   "last_edited_at": null,
   "closed": false,
   "closed_at": null,
@@ -24,21 +24,50 @@
   "answer_chosen_at": null,
   "upvotes": 1,
   "body": "I am working with an agency that wants to allow a cloud to go into production with only an IATO. IATOs are generally considered to be a legacy designation and are not recognized by OMB. Does FedRAMP allow IATOs? \r\n",
-  "comment_count": 0,
-  "comments": [],
+  "comment_count": 1,
+  "comments": [
+    {
+      "id": "DC_kwDOOxfoic4BK0tu",
+      "url": "https://github.com/FedRAMP/community/discussions/199#discussioncomment-19614574",
+      "author": "pete-gov",
+      "author_association": "MEMBER",
+      "is_official": true,
+      "created_at": "2026-11-14T15:16:49Z",
+      "updated_at": "2026-11-14T15:16:49Z",
+      "upvotes": 1,
+      "minimized": false,
+      "body": "As you said, there's no such thing as an Interim ATO under current guidance; the NIST SP 800-37 Rev2 (Appendix F) calls this just an ATO like any other ATO. \"IATO\" is usually just legacy shorthand for \"ATO with a short-term authorization and some additional conditions.\"\r\n\r\nFedRAMP's rules on [agency sponsorship for Rev5 are here](https://www.fedramp.gov/2026/agencies/sponsoring/). An agency could sponsor a cloud service for FedRAMP Certification after issuing an ATO following the FedRAMP process and FedRAMP will determine if the resulting assessment, materials, and decisions are sufficient for government-wide use.\r\n\r\nIf there's a megaton of sloppy risk acceptance and other conditions and stuff in there, FedRAMP will almost certainly deny the FedRAMP Certification. We do this more frequently than folks might expect. On the other hand if it's a great package with a high quality assessment and the agency just isn't sure how long they're going to use it for so they're only doing a short-term ATO then it would likely pass FedRAMP Certification.",
+      "is_answer": false,
+      "replies": [],
+      "replies_total": 0,
+      "replies_truncated": false
+    }
+  ],
   "answer_url": null,
   "participants": [
-    "LPT00-ctrl"
+    "LPT00-ctrl",
+    "pete-gov"
   ],
-  "official_responses": [],
+  "official_responses": [
+    {
+      "url": "https://github.com/FedRAMP/community/discussions/199#discussioncomment-19614574",
+      "author": "pete-gov",
+      "created_at": "2026-11-14T15:16:49Z"
+    }
+  ],
   "entities": {
     "rule_ids": [],
     "rfc_ids": [],
     "nist_controls": [],
     "discussion_refs": [],
-    "urls": [],
-    "topics": []
+    "urls": [
+      "https://www.fedramp.gov/2026/agencies/sponsoring/"
+    ],
+    "topics": [
+      "agency_authorization",
+      "rev5"
+    ]
   },
-  "content_hash": "3270eb08e177dbee14256ea517d166fbc168370440e82817e0932d7d88774937",
-  "synced_at": "2026-11-14T14:14:29.422486+00:00"
+  "content_hash": "aef1e0b856653e27a3a4be4c6a2075e3673c8a329b2aa803877f8ff8e5bd2679",
+  "synced_at": "2026-11-15T14:49:29.056259+00:00"
 }

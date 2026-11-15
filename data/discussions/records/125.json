@@ -7,8 +7,8 @@
   "number": 125,
   "title": "Introducing FedRAMP Public Notices - including notification of security inbox testing and the outcomes from RFC-0019, RFC-0020, and RFC-0021!",
   "url": "https://github.com/FedRAMP/community/discussions/125",
-  "category": "Announcements",
-  "category_slug": "announcements",
+  "category": "Official Threads",
+  "category_slug": "official-threads",
   "labels": [
     "FedRAMP Official"
   ],
@@ -112,6 +112,6 @@
       "marketplace"
     ]
   },
-  "content_hash": "4142d187f35eec22ef1f3949864a264406644b21757f695547ee0e648537d1ad",
-  "synced_at": "2026-10-24T02:20:11.900157+00:00"
+  "content_hash": "90245a9a59c27438f1bfbac60f1e78ecc74d1c641e534e99d6aa507d1ccb4ff7",
+  "synced_at": "2026-11-15T14:49:29.056259+00:00"
 }

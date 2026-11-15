@@ -15,7 +15,7 @@
   "author": "pete-gov",
   "author_is_official": true,
   "created_at": "2026-06-24T21:49:44Z",
-  "updated_at": "2026-11-13T22:58:58Z",
+  "updated_at": "2026-11-14T15:36:57Z",
   "last_edited_at": null,
   "closed": false,
   "closed_at": null,
@@ -3132,8 +3132,21 @@
       "minimized": false,
       "body": "For the FedRAMP Incident Evaluation and Communication (IEC) rule related to ongoing incident notifications, IEC-CSO-OIR, could you provide guidance on which of the following reporting approaches CSPs should follow?\r\n\r\n1.\tNotification only when new information becomes available: After submitting the initial incident report, CSPs are required to provide ongoing incident notifications only when new information becomes available.\r\n2.\tOngoing notifications regardless of new information: After submitting the initial incident report, CSPs are required to continue providing ongoing incident notifications, even if no new information is available.\r\n3.\tOngoing notifications until new information becomes available: After submitting the initial incident report, CSPs are required to continue providing ongoing incident notifications, even if no new information is available. If there are no new developments, CSPs must continue submitting notifications indicating that there are no updates until new information becomes available.\r\n",
       "is_answer": false,
-      "replies": [],
-      "replies_total": 0,
+      "replies": [
+        {
+          "id": "DC_kwDOOxfoic4BK0yI",
+          "url": "https://github.com/FedRAMP/community/discussions/146#discussioncomment-19614856",
+          "author": "pete-gov",
+          "author_association": "MEMBER",
+          "is_official": true,
+          "created_at": "2026-11-14T15:36:56Z",
+          "updated_at": "2026-11-14T15:37:35Z",
+          "upvotes": 0,
+          "minimized": false,
+          "body": "IEC-CSO-OIR (Ongoing Incident Reports) says:\r\n\r\n_Providers with Class D Certifications [MUST](https://www.fedramp.gov/2026/definitions/#must) responsibly notify all affected parties of ongoing activity **as new information becomes available** during incident response for FedRAMP Reportable Incidents, **including updates (or lack of updates)** to all previously reported information and as much of the following additional information that is available and/or the current relevant status for each item..._\r\n\r\nThe structure of this rule is designed to create the following set of incentives:\r\n\r\n1. Report new information as it's available. \r\n2. Supply a report at _least_ every X hours.\r\n3. The report supplied at least every X hours should say if there is a lack of updates.\r\n\r\nThe anticipated customer experience is that during high impact incidents:\r\n\r\n1. Communication is much more frequent that the mandatory ongoing reporting windows.\r\n2. If there aren't changes or new information, at the very least a mandatory report is sent on a regular basis explain that.\r\n\r\nSome cloud service providers may choose to just target sending an update every X hours and that's sufficient from a compliance perspective but it's a garbage customer experience when there's a big impact and your customers will be very unhappy with you. :)\r\n\r\nSo, approach (1) that you listed is out because it doesn't provide the mandatory recurring update that there are no changes (which is very valuable information for your customers). If I understand your (2) and (3) correctly, either of those are viable approaches but (3) (notify on new information and then within X timeframe if no new information) is ideal."
+        }
+      ],
+      "replies_total": 1,
       "replies_truncated": false
     }
   ],
@@ -3675,6 +3688,11 @@
       "url": "https://github.com/FedRAMP/community/discussions/146#discussioncomment-19575062",
       "author": "pete-gov",
       "created_at": "2026-11-12T21:24:41Z"
+    },
+    {
+      "url": "https://github.com/FedRAMP/community/discussions/146#discussioncomment-19614856",
+      "author": "pete-gov",
+      "created_at": "2026-11-14T15:36:56Z"
     }
   ],
   "entities": {
@@ -3790,6 +3808,7 @@
       "https://www.fedramp.gov/2026/agencies/use/ongoing/poams/#:~:text=Cloud%20service%20providers%20should%20not%20be%20expected%20to%20convert%20their%20vulnerability%20lists%2C%20product%20security",
       "https://www.fedramp.gov/2026/changelog/?h=FRC-CSX-MOT#2026100801-october-8-2026",
       "https://www.fedramp.gov/2026/definitions/#debilitating-customer-effect",
+      "https://www.fedramp.gov/2026/definitions/#must",
       "https://www.fedramp.gov/2026/definitions/#narrow-customer-effect",
       "https://www.fedramp.gov/2026/definitions/#responsibly",
       "https://www.fedramp.gov/2026/providers/implement/rules/",
@@ -3860,6 +3879,6 @@
       "vulnerability_mgmt"
     ]
   },
-  "content_hash": "b67c4ba9c1e0d613c5ff991d036d0c66be075ce5db787c7df3a6d85df801ac83",
-  "synced_at": "2026-11-14T14:14:29.422486+00:00"
+  "content_hash": "d047b987eaa78015aeeb2fba1e306b370b94be7f953c38458a2f387273cbce14",
+  "synced_at": "2026-11-15T14:49:29.056259+00:00"
 }
