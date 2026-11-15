@@ -175,6 +175,10 @@ The reporting timeframe depends on your class and the incident's PAIN rating. Ti
   **The "all necessary parties" route is an oversight.** On 2026-10-28, **pete-gov** said the `IEC-CSO-IIR`, `IEC-CSO-OIR` and `IEC-CSO-FIR` rules require notifying affected parties, not all necessary parties, so the notification requirement shouldn't list them. FedRAMP opened [FedRAMP/Rules#47](https://github.com/FedRAMP/rules/issues/47) and said it will make the all-necessary-parties notification optional. Posting incident information in the trust center is still helpful but up to you. Staff also said a notification must not enable a threat actor, so sanitize it. In most cases public posting should be fine. If even the existence of an incident could create a threat, share it carefully with affected parties only. This was a stated plan. Release `2026.11.02.01` (2026-11-02) says the update to all necessary parties is now marked optional in the notification metadata of all three rules, and that the `updated` array wasn't updated for this change. The rendered rule text still lists the route without the word "optional", so read the official rule and its metadata before you rely on this. This refines the 2026-10-21 note above. [Discussion #146 comment](https://github.com/FedRAMP/community/discussions/146#discussioncomment-19250378)
 </Note>
 
+<Note>
+  **Ongoing reports must include "no update" reports.** On 2026-11-14, **pete-gov** said `IEC-CSO-OIR` is designed so you report new information as it becomes available, report at least every set interval, and say in each recurring report when nothing has changed. Staff said sending only on new information doesn't meet the rule. Staff called reporting on new information plus a recurring "no update" report ideal. [Discussion #146 comment](https://github.com/FedRAMP/community/discussions/146#discussioncomment-19614856)
+</Note>
+
 ## Related
 
 - [Vulnerability evaluation and reporting](/rules/vulnerability-evaluation-and-reporting): PAIN ratings for vulnerabilities

@@ -5,14 +5,79 @@ sidebarTitle: "Notable staff answers"
 ---
 
 <Info>
-  **Threads covered:** community discussions updated on or after 2026-06-01 that have at least one FedRAMP staff post. This excludes [#146](/discussions/rev5-cr26-questions), [#147](/discussions/20x-cr26-questions) and RFC threads, which are covered in [RFC history](/discussions/rfc-history). Newest threads come first. **Last reviewed:** 2026-11-04 against upstream release `2026.11.02.01`. Staff answers are paraphrased. Follow each link for the exact wording. Staff statements don't change the published rules. Where they conflict, the [official rules](https://www.fedramp.gov/2026/) govern.
+  **Threads covered:** community discussions updated on or after 2026-06-01 that have at least one FedRAMP staff post. This excludes [#146](/discussions/rev5-cr26-questions), [#147](/discussions/20x-cr26-questions) and RFC threads, which are covered in [RFC history](/discussions/rfc-history). Newest threads come first. **Last reviewed:** 2026-11-15 against upstream release `2026.11.02.01`. Staff answers are paraphrased. Follow each link for the exact wording. Staff statements don't change the published rules. Where they conflict, the [official rules](https://www.fedramp.gov/2026/) govern.
 </Info>
 
 <Note>
   Several threads below were active before the Consolidated Rules for 2026 (CR26) were published on 2026-06-24, and were last updated around that date. Staff posts from before 2026-06-24 cite draft or pilot material. Check them against the current rules before relying on them.
 
-  Every thread below up to #173 was closed between 2026-06-24 and 2026-09-16. Unanswered follow-ups in those threads may never get a reply. Threads #174 through #178 were still open as of 2026-10-14. Threads #181 through #184 were open at the 2026-10-24 sync, #186 was open at the 2026-10-26 sync, and #188 was open at the 2026-11-04 sync.
+  Every thread below up to #173 was closed between 2026-06-24 and 2026-09-16. Unanswered follow-ups in those threads may never get a reply. Threads #174 through #178 were still open as of 2026-10-14. Threads #181 through #184 were open at the 2026-10-24 sync, #186 was open at the 2026-10-26 sync, #188 was open at the 2026-11-04 sync, and #196, #198 and #199 were open at the 2026-11-15 sync.
 </Note>
+
+## #199 IATOs
+
+[Thread](https://github.com/FedRAMP/community/discussions/199) (General Discussion, opened 2026-11-13).
+
+**Bottom line:** Staff said there is no "Interim ATO" under current guidance, and that an agency can sponsor a certification after issuing an ATO.
+
+The question: an agency wants to put a cloud service into production with only an Interim Authorization to Operate (IATO). The poster asked whether FedRAMP allows IATOs.
+
+<Note>
+  **pete-gov, 2026-11-14** ([comment](https://github.com/FedRAMP/community/discussions/199#discussioncomment-19614574)):
+  - There is no Interim ATO under current guidance. Staff cited NIST SP 800-37 Rev2 (Appendix F), which treats it as an ATO like any other. "IATO" is legacy shorthand for an ATO with a short term and extra conditions.
+  - An agency could sponsor a service for FedRAMP Certification after issuing an ATO that follows the FedRAMP process. FedRAMP then decides whether the assessment, materials and decisions are sufficient for government-wide use. Staff pointed to the [agency sponsorship rules](https://www.fedramp.gov/2026/agencies/sponsoring/).
+  - Staff said FedRAMP would "almost certainly" deny certification if the package has heavy risk acceptance and conditions. A high-quality assessment with a short-term ATO would likely pass.
+</Note>
+
+**Open questions:** none raised.
+
+**What it means for you:** in staff's view a short-term ATO doesn't bar sponsorship, and package quality decides the outcome. Sponsored Rev5 certifications are covered by `AGU-SPN` (see [Agency use](/rules/agency-use)). This is a staff position, not a published rule.
+
+## #198 Advisory separation across frameworks and products
+
+[Thread](https://github.com/FedRAMP/community/discussions/198) (Rev5 Discussion, opened 2026-11-13).
+
+**Bottom line:** FedRAMP declined to say whether PCI self-assessment validation counts as advisory work under `REC-IAS-SEP`, and said it can't give an official "this is okay."
+
+The question: a provider's assessor said it can't validate PCI DSS self-assessment questionnaires (SAQs), even for products outside the FedRAMP offering, because that counts as advisory work. The provider asked whether that fits [`REC-IAS-SEP`](https://www.fedramp.gov/2026/reference/fedramp-recognition/#advisory-separation). The post used the legacy term "3PAO" for the assessor.
+
+<Note>
+  **pete-gov, 2026-11-14** ([comment](https://github.com/FedRAMP/community/discussions/198#discussioncomment-19614394)):
+  - FedRAMP doesn't dig into other frameworks. Without the details of a PCI SAQ, it won't say whether supporting one is an assessor conflict of interest.
+  - FedRAMP's rules here are meant to prevent a "we will pass you if you do it our way" conflict. A2LA R311 or the other frameworks may add their own considerations.
+  - If your assessor says independence prevents the work, staff would assume it has a reason. Staff can't give an official FedRAMP approval without researching the details.
+</Note>
+
+**Open questions:** whether SAQ validation for products outside the FedRAMP offering is advisory work. Staff didn't answer.
+
+**What it means for you:** `REC-IAS-SEP` says an assessor MUST NOT perform a FedRAMP independent assessment of the same offering within 2 years after supplying advisory or consulting services for it. The rules don't address other frameworks. See [FedRAMP recognition](/rules/fedramp-recognition).
+
+## #196 VDR/VER migration progress reporting
+
+[Thread](https://github.com/FedRAMP/community/discussions/196) (Official Threads, opened 2026-11-10 by `pete-gov`). The thread covers Public Notice NTC-0017 and the [VDR/VER Migration Resources](https://www.fedramp.gov/vdr-migration/) site. Neither is in this site's rules mirror, so check them for current requirements.
+
+**Bottom line:** Staff said customers, not FedRAMP, will evaluate most migration progress reports. They also said a `SHOULD` rule you won't do more on can be reported as a documented departure.
+
+<Note>
+  **pete-gov, 2026-11-11** ([comment](https://github.com/FedRAMP/community/discussions/196#discussioncomment-19548668)): In the Mini-SDR, mark the 20x-specific rule `Not Applicable` (with `capStatus` `Not Applicable`) for Rev5, and the reverse. This answered a question about [`VDR-TFR-MVF`](https://www.fedramp.gov/2026/reference/vulnerability-detection-and-response/#persistent-machine-verification-and-validation-for-rev5), which is Rev5 only. Staff said they meant to put conditional logic in the JSON schema.
+</Note>
+
+<Note>
+  **pete-gov, 2026-11-12** ([comment](https://github.com/FedRAMP/community/discussions/196#discussioncomment-19575296)): Staff said a community summary of the Rev5 timing is "generally" right. For example, if FedRAMP sends the Security Inbox Emergency Test on 2026-12-03, you could choose to submit a progress report before 2026-12-07. Read the comment for the full exchange.
+</Note>
+
+<Note>
+  **pete-gov, 2026-11-14** ([comment](https://github.com/FedRAMP/community/discussions/196#discussioncomment-19614702)):
+  - FedRAMP won't personally evaluate about 600 progress reports. Partners and customers will.
+  - `Not Applicable` is for rules that don't apply, such as a 20x-only rule for a Rev5 provider. Otherwise staff confirmed the poster's reading: an incomplete `MUST` or `MUST NOT` rule needs `customerRisk`, `providerCompensation`, `agencyCompensation` and an active CAP, and `capStatus` `Not Applicable` can't waive it.
+  - For a `SHOULD` or `SHOULD NOT` rule you won't do more on, reporting it with an explanation and the compensation fields is "perfectly acceptable." Staff said this tells customers you are done and they should decide on risk.
+  - If you are still working toward fuller implementation of a `SHOULD` rule, staff expect you to say so and give corrective action goals and timelines.
+  - Staff said FedRAMP set a "very low bar, on purpose," but that meeting only the minimum may not be a good business decision.
+</Note>
+
+**Open questions:** none identified. Later replies may appear in the thread.
+
+**What it means for you:** the published rules still govern `VDR` and `VER`. See [Vulnerability detection and response](/rules/vulnerability-detection-and-response) and [Vulnerability evaluation and reporting](/rules/vulnerability-evaluation-and-reporting). The progress report fields come from NTC-0017 and the migration site, not from the rules in this repo.
 
 ## #188 Submitting an FRC-CSO-PKG Rev5
 
