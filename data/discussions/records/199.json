@@ -15,7 +15,7 @@
   "author": "LPT00-ctrl",
   "author_is_official": false,
   "created_at": "2026-11-13T20:18:07Z",
-  "updated_at": "2026-11-14T15:16:49Z",
+  "updated_at": "2026-11-16T00:51:58Z",
   "last_edited_at": null,
   "closed": false,
   "closed_at": null,
@@ -38,8 +38,33 @@
       "minimized": false,
       "body": "As you said, there's no such thing as an Interim ATO under current guidance; the NIST SP 800-37 Rev2 (Appendix F) calls this just an ATO like any other ATO. \"IATO\" is usually just legacy shorthand for \"ATO with a short-term authorization and some additional conditions.\"\r\n\r\nFedRAMP's rules on [agency sponsorship for Rev5 are here](https://www.fedramp.gov/2026/agencies/sponsoring/). An agency could sponsor a cloud service for FedRAMP Certification after issuing an ATO following the FedRAMP process and FedRAMP will determine if the resulting assessment, materials, and decisions are sufficient for government-wide use.\r\n\r\nIf there's a megaton of sloppy risk acceptance and other conditions and stuff in there, FedRAMP will almost certainly deny the FedRAMP Certification. We do this more frequently than folks might expect. On the other hand if it's a great package with a high quality assessment and the agency just isn't sure how long they're going to use it for so they're only doing a short-term ATO then it would likely pass FedRAMP Certification.",
       "is_answer": false,
-      "replies": [],
-      "replies_total": 0,
+      "replies": [
+        {
+          "id": "DC_kwDOOxfoic4BK7qw",
+          "url": "https://github.com/FedRAMP/community/discussions/199#discussioncomment-19643056",
+          "author": "LPT00-ctrl",
+          "author_association": "NONE",
+          "is_official": false,
+          "created_at": "2026-11-16T00:48:17Z",
+          "updated_at": "2026-11-16T00:48:17Z",
+          "upvotes": 0,
+          "minimized": false,
+          "body": "Thank you for the fast and thoughtful response. I had thought that the cloud must be FedRAMP Certified before an agency can give out an ATO, however, it sounds like that is not the case since you are saying they can pursue FedRAMP Certification after giving out an ATO. \r\nIf an agency gives a full ATO to a cloud that is not FedRAMP Certified, I assume that could open them up to Inspector General findings."
+        },
+        {
+          "id": "DC_kwDOOxfoic4BK7ry",
+          "url": "https://github.com/FedRAMP/community/discussions/199#discussioncomment-19643122",
+          "author": "pete-gov",
+          "author_association": "MEMBER",
+          "is_official": true,
+          "created_at": "2026-11-16T00:51:57Z",
+          "updated_at": "2026-11-16T00:51:57Z",
+          "upvotes": 0,
+          "minimized": false,
+          "body": "> I had thought that the cloud must be FedRAMP Certified before an agency can give out an ATO, however, it sounds like that is not the case since you are saying they can pursue FedRAMP Certification after giving out an ATO.\r\n\r\nYes, that is the Rev5 Agency Certification route that is available until June 11, 2027. After that, cloud services will need to come to FR first. \r\n\r\n> If an agency gives a full ATO to a cloud that is not FedRAMP Certified, I assume that could open them up to Inspector General findings.\r\n\r\nIndeed, though, to be honest, the law and OMB Memorandum M-24-15 are not as explicit here as they could be so it's unlikely an IG or GAO would actually go hard on this as long as the agency follows their own policies properly."
+        }
+      ],
+      "replies_total": 2,
       "replies_truncated": false
     }
   ],
@@ -53,6 +78,11 @@
       "url": "https://github.com/FedRAMP/community/discussions/199#discussioncomment-19614574",
       "author": "pete-gov",
       "created_at": "2026-11-14T15:16:49Z"
+    },
+    {
+      "url": "https://github.com/FedRAMP/community/discussions/199#discussioncomment-19643122",
+      "author": "pete-gov",
+      "created_at": "2026-11-16T00:51:57Z"
     }
   ],
   "entities": {
@@ -68,6 +98,6 @@
       "rev5"
     ]
   },
-  "content_hash": "aef1e0b856653e27a3a4be4c6a2075e3673c8a329b2aa803877f8ff8e5bd2679",
-  "synced_at": "2026-11-15T14:49:29.056259+00:00"
+  "content_hash": "a95f32a7d16026a072ba63eac339006dff177c98f2e5ce921d272f3741b428e5",
+  "synced_at": "2026-11-16T17:07:13.018554+00:00"
 }
