@@ -1,0 +1,8 @@
+{
+  "source": "FedRAMP/rules",
+  "version": "2026.11.02.01",
+  "last_updated": "2026-11-02",
+  "commit": "64fa769510416fa75fd00a4689466094265b8083",
+  "rules_sha256": "782faecae3eee4aa2aa9d32cdb0de4c929524f2e41dc1f3d143a94a9ca64c4e3",
+  "schema_sha256": "2fb59963b5b9161acb1354a2b76fda8b8a832275e1ac1ad93315c031ca350f8d"
+}

@@ -1,0 +1,56 @@
+name: FedRAMP rules check
+
+# Fails when the FedRAMP rules commit docs mirrors (upstream/_sources.json) isn't the one
+# brain approves (fedramp-rules.lock.json), and when this repo's lock differs from brain's.
+# Runs on PRs, on main, and after every Nightly sync (whose pushes don't trigger `push`).
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: ["Nightly sync"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      HAS_BOT_KEY: ${{ secrets.SEQUENCER_BOT_PRIVATE_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # After Nightly sync, check what it just committed to main.
+          ref: ${{ github.event_name == 'workflow_run' && 'main' || '' }}
+
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests
+
+      - name: Check the mirrored rules commit matches the lock
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 scripts/check-rules-sync.py
+
+      # Red between a brain bump merging and this repo's follow PR merging; that's the alert.
+      - name: Skip the brain lock check without the sequencer-bot App
+        if: env.HAS_BOT_KEY != 'true' || github.actor == 'dependabot[bot]'
+        run: echo "::notice::Skipping the brain lock check. The sequencer-bot App key isn't available to this run (App not set up yet, Dependabot or a fork)."
+      - name: Get a read-only sequencer-bot token for brain
+        id: brain-token
+        if: env.HAS_BOT_KEY == 'true' && github.actor != 'dependabot[bot]'
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.SEQUENCER_BOT_CLIENT_ID }}
+          private-key: ${{ secrets.SEQUENCER_BOT_PRIVATE_KEY }}
+          owner: SEQUENCER-ASSURANCE
+          repositories: brain
+          permission-contents: read
+      - name: Check the rules lock matches brain's
+        if: steps.brain-token.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ steps.brain-token.outputs.token }}
+        run: python3 scripts/check-rules-lock.py
