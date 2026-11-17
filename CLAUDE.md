@@ -2,6 +2,11 @@
 
 This repo is a Mintlify site for cloud service provider (CSP) clients. It explains the FedRAMP Consolidated Rules for 2026 and what FedRAMP staff say in the FedRAMP community discussions. Readers are CSP executives who need the bottom line and engineers who need to know exactly what to build or produce.
 
+## Roadmap and process
+
+Read `~/code/brain/SDLC.md` (process) and `~/code/brain/ROADMAP.md` (priorities) before
+proposing or starting work. The rules live there, not here.
+
 ## Repo layout
 
 | Path | What it is | Who edits it |
