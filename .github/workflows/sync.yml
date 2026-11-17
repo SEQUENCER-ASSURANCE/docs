@@ -74,7 +74,8 @@ jobs:
         if: steps.commit.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
+        # No base: update-docs starts from the last sync a nightly PR covered, so syncs
+        # skipped while a nightly PR was open still get processed.
         run: |
           gh workflow run update-docs.yml --ref main \
-            -f base=${{ steps.commit.outputs.base }} \
             -f head=${{ steps.commit.outputs.head }}

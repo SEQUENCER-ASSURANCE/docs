@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       base:
-        description: "Commit before the sync (default: parent of head)"
+        description: "Commit before the sync (default: head of the last nightly PR's source range, else parent of head)"
         required: false
         type: string
       head:
@@ -30,7 +30,41 @@ env:
   MAX_AUTO_MERGE_LINES: 200
 
 jobs:
+  # Don't open a second nightly PR while one is still open. Skipped syncs aren't
+  # lost: the next run starts from the head of the last nightly PR's source range,
+  # so it covers every sync since then.
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pull-requests: read
+    outputs:
+      skip: ${{ steps.check.outputs.skip }}
+      last_head: ${{ steps.check.outputs.last_head }}
+    steps:
+      - name: Check for an open nightly PR
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          PRS=$(gh pr list --state all --limit 50 --json number,state,headRefName,createdAt,body \
+            --jq '[.[] | select(.headRefName | startswith("auto/update-"))] | sort_by(.createdAt)')
+          OPEN=$(echo "$PRS" | jq -r '[.[] | select(.state == "OPEN") | "#\(.number)"] | join(" ")')
+          if [ -n "$OPEN" ]; then
+            echo "::notice::Nightly PR(s) still open: $OPEN. Not opening another. Merge or close them; the next run covers the skipped syncs."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          # The workflow writes "Source range: `BASE..HEAD`" at the end of every nightly PR body.
+          LAST_HEAD=$(echo "$PRS" | jq -r 'last | .body // ""' | grep -oE 'Source range: `[0-9a-f]{40}\.\.[0-9a-f]{40}`' | tail -n 1 | sed -E 's/.*\.\.([0-9a-f]{40})`/\1/' || true)
+          echo "Last processed sync head: ${LAST_HEAD:-none found}"
+          echo "last_head=$LAST_HEAD" >> "$GITHUB_OUTPUT"
+
   update:
+    needs: gate
+    if: needs.gate.outputs.skip != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     outputs:
@@ -46,9 +80,15 @@ jobs:
         env:
           INPUT_HEAD: ${{ inputs.head }}
           INPUT_BASE: ${{ inputs.base }}
+          LAST_HEAD: ${{ needs.gate.outputs.last_head }}
         run: |
           HEAD_SHA=$(git rev-parse --verify "${INPUT_HEAD:-HEAD}^{commit}")
-          BASE_SHA=$(git rev-parse --verify "${INPUT_BASE:-$HEAD_SHA~1}^{commit}")
+          DEFAULT_BASE="$HEAD_SHA~1"
+          # Start after the last sync a nightly PR covered, if it's an older commit on this history.
+          if [ -n "$LAST_HEAD" ] && [ "$LAST_HEAD" != "$HEAD_SHA" ] && git merge-base --is-ancestor "$LAST_HEAD" "$HEAD_SHA" 2>/dev/null; then
+            DEFAULT_BASE="$LAST_HEAD"
+          fi
+          BASE_SHA=$(git rev-parse --verify "${INPUT_BASE:-$DEFAULT_BASE}^{commit}")
           echo "base=$BASE_SHA" >> "$GITHUB_OUTPUT"
           echo "head=$HEAD_SHA" >> "$GITHUB_OUTPUT"
           echo "branch=auto/update-$(date -u +%Y-%m-%d)-${{ github.run_id }}" >> "$GITHUB_OUTPUT"
